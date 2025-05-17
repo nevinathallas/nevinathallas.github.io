@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
         centerSlides: true,
         speed: 500,
         
-        // Pagination
+        // Pagination - menggunakan selector spesifik
         pagination: {
-          el: '.swiper-pagination',
+          el: '.sertifikat-pagination',
           clickable: true,
         },
         
@@ -81,7 +81,7 @@ window.addEventListener('load', function() {
           spaceBetween: 20,
           loop: true,
           pagination: {
-            el: '.swiper-pagination',
+            el: '.sertifikat-pagination',
             clickable: true,
           },
           breakpoints: {
