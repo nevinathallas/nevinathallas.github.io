@@ -7,6 +7,9 @@
     <link href="src/output.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Swiper.js - versi yang dijamin berfungsi -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" defer></script>
 </head>
 <body class="bg-[#F9F6EE] dark:bg-gray-800 transition-colors duration-300">
     <!-- In index.html -->
@@ -40,10 +43,10 @@
                 </div>
                 <div class="flex items-center px-4">
                     <button id="hamburger" name="hamburger" type="button" 
-                    class="block absolute right-4 lg:hidden">
-                        <span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
-                        <span class="hamburger-line transition duration-300 ease-in-out"></span>
-                        <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span>
+                    class="absolute right-4 lg:hidden flex items-center justify-center">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
                     </button>
                     <nav id="nav-menu" class="hidden absolute py-5 bg-white dark:bg-gray-800 shadow-lg rounded-lg max-w-[250px] 
                     w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none 
@@ -56,13 +59,13 @@
                                 <a href="#about" class="text-base nav-link py-2 mx-8 flex group-hover:text-primary">Tentang Saya</a>
                             </li>
                             <li class="group">
+                                <a href="#sertifikat" class="text-base nav-link py-2 mx-8 flex group-hover:text-primary">Sertifikat</a>
+                            </li>
+                            <li class="group">
                                 <a href="#portfolio" class="text-base nav-link py-2 mx-8 flex group-hover:text-primary">Portfolio</a>
                             </li>
                             <li class="group">
                                 <a href="#clients" class="text-base nav-link py-2 mx-8 flex group-hover:text-primary">Clients</a>
-                            </li>
-                            <li class="group">
-                                <a href="#blog" class="text-base nav-link py-2 mx-8 flex group-hover:text-primary">Blog</a>
                             </li>
                             <li class="group">
                                 <a href="#contact" class="text-base nav-link py-2 mx-8 flex group-hover:text-primary">Contact</a>
@@ -104,14 +107,14 @@
                         Saya adalah Mahasiswa Sistem Informasi Telkom University Jakarta yang suka ngoding dan bermain game 
                         <span class="text-dark dark:text-white font-bold">kadang.</span>
                     </p>
-                    <a href="#" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out animate-landing delay-600">
+                    <a href="#" class="text-base font-semibold text-white bg-primary hover:bg-red-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-10 ease-in-out animate-landing delay-10">
                         Hubungi Saya
                     </a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-0 lg:right-0 animate-landing delay-600">
                         <img src="src/img/nevin.png" alt="Nevin Athalla" 
-                            class="max-w-xs grayscale lg:max-w-sm mx-auto transform hover:scale-105 hover:grayscale-0 transition-all duration-300">
+                            class="max-w-xs grayscale lg:max-w-sm mx-auto transform hover:scale-105 hover:grayscale-0 transition-all ease-in-out animate-landing duration-100 delay-100">
                         <span class="absolute -bottom-0 -z-10 left-1/2 -translate-x-1/2 md:scale-12">
                             <svg width="400" height="400" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="#FA4D56" d="M49.9,-56C58.9,-41,56.2,-20.5,53.6,-2.6C51,15.3,48.4,30.6,39.5,41C30.6,51.5,15.3,57.1,-2.9,60C-21.1,62.9,-42.2,63.1,-56.2,52.6C-70.2,42.2,-77.1,21.1,-73.6,3.5C-70.1,-14.1,-56.2,-28.2,-42.2,-43.1C-28.2,-58.1,-14.1,-74,3.2,-77.2C20.5,-80.4,41,-71,49.9,-56Z" 
@@ -163,49 +166,202 @@
     </section>
     <!-- About Section End -->
 
-    <!-- Portfolio Section Start -->
-    <section id="portfolio" class="pt-36 pb-16 bg-[#F0EAD6] dark:bg-gray-900 transition-colors duration-300">
+    <!-- Sertifikat Section Start -->
+    <section id="sertifikat" class="pt-36 pb-16 bg-[#F9F6EE] dark:bg-gray-800 transition-colors duration-300">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16 animate-landing">
-                    <h4 class="font-semibold text-lg text-primary mb-2">PORTFOLIO</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white animate-landing delay-200">Project Terbaru</h2>
-                    <p class="font-medium text-md text-secondary dark:text-white animate-landing delay-200">Lorem, ipsum dolor sit amet consectetur 
-                    adipisicing elit. Ullam eveniet quas quaerat facere iure, debitis aperiam sed cumque velit tenetur.
+                    <h4 class="font-semibold text-lg text-primary mb-2">SERTIFIKAT</h4>
+                    <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white animate-landing delay-200">Pencapaian & Sertifikasi</h2>
+                    <p class="font-medium text-md text-secondary dark:text-white animate-landing delay-200">
+                        Berikut adalah kumpulan sertifikat dan pencapaian yang telah saya dapatkan selama perjalanan karir dan pendidikan saya.
                     </p>
                 </div>
             </div>
-            <div class="w-full px-4 flex flex-wrap justify-center">
 
-                <div class="mb-12 p-4 animate-landing delay-200 md:w-1/2">
-                    <div class="class rounded-md overflow-hidden">
-                        <img src="src/img/portfolio/1.png" alt="Learn.io" width="w-full">
+                <!-- Swiper Carousel Container -->
+            <!-- Sertifikat Carousel Container dengan tombol navigasi di luar konten -->
+            <div class="relative w-full max-w-6xl mx-auto px-12 mb-16">
+                <!-- Tombol navigasi yang berada di luar content -->
+                <button class="swiper-nav-btn swiper-nav-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-30 bg-white dark:bg-slate-700 text-primary rounded-full p-3 shadow-md hover:bg-gray-100 dark:hover:bg-slate-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+                
+                <button class="swiper-nav-btn swiper-nav-next absolute right-0 top-1/2 transform -translate-y-1/2 z-30 bg-white dark:bg-slate-700 text-primary rounded-full p-3 shadow-md hover:bg-gray-100 dark:hover:bg-slate-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+                
+                <!-- Swiper container -->
+                <div class="swiper sertifikatSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Sertifikat 1 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/sertifikat/1.png" alt="Sertifikat LKMM" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Sertifikat LKMM Tingkat Menengah</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Diperoleh pada pelatihan kepemimpinan mahasiswa tingkat menengah tahun 2023.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sertifikat 2 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/sertifikat/2.png" alt="Sertifikat LKMM" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Sertifikat LKMM Tingkat Menengah</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Detail kegiatan LKMM Tingkat Menengah yang dilaksanakan pada tahun 2023.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sertifikat 3 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/sertifikat/3.png" alt="Sertifikat PKKMB" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Sertifikat PKKMB Program Studi</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Sertifikat PKKMB Program Studi Sistem Informasi sebagai Ketua Pelaksana.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sertifikat 4 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/sertifikat/1.png" alt="Sertifikat Tambahan" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Sertifikat Tambahan</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Deskripsi sertifikat tambahan yang bisa ditambahkan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sertifikat 5 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/sertifikat/2.png" alt="Sertifikat Tambahan" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Sertifikat Tambahan Lainnya</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Deskripsi sertifikat tambahan lainnya yang bisa ditambahkan.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 dark:text-white animate-landing delay-200">Sertifikat LKMM tingkat Menengah</h3>
-                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dicta quod obcaecati.</p>
                 </div>
-                <div class="mb-12 p-4 animate-landing delay-200 md:w-1/2">
-                    <div class="class rounded-md overflow-hidden">
-                        <img src="src/img/portfolio/2.png" alt="Learn.io" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5">Sertifikat LKMM tingkat Menengah</h3>
-                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dicta quod obcaecati.</p>
-                </div>
-                <div class="mb-12 p-4 animate-landing delay-200 md:w-1/2">
-                    <div class="class rounded-md overflow-hidden">
-                        <img src="src/img/portfolio/3.png" alt="Learn.io" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5">Dashboard Learn.io</h3>
-                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dicta quod obcaecati.</p>
-                </div>
-                <div class="mb-12 p-4 animate-landing delay-200 md:w-1/2">
-                    <div class="class rounded-md overflow-hidden">
-                        <img src="src/img/portfolio/4.png" alt="Learn.io" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5">Login Page Learn.io</h3>
-                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dicta quod obcaecati.</p>
-                </div>
+            </div>
+            
+            <!-- Pagination dots seperti pada gambar kedua -->
+            <div class="swiper-pagination-wrapper pb-4 mt-3">
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Sertifikat Section End -->
 
+    <!-- Portfolio Section Start -->
+    <section id="portfolio" class="pt-36 pb-16 bg-[#F9F6EE] dark:bg-gray-800 transition-colors duration-300">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-16 animate-landing">
+                    <h4 class="font-semibold text-lg text-primary mb-2">PROJECT</h4>
+                    <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white animate-landing delay-200">Project Terbaru</h2>
+                    <p class="font-medium text-md text-secondary dark:text-white animate-landing delay-200">
+                        Berikut adalah kumpulan proyek yang telah saya kerjakan sebagai bagian dari portofolio pengembangan web saya.
+                    </p>
+                </div>
+            </div>
+            <!-- Project Carousel Container dengan tombol navigasi di luar konten -->
+            <div class="relative w-full max-w-6xl mx-auto px-12 mb-16">
+                <!-- Tombol navigasi yang berada di luar content -->
+                <button class="swiper-nav-btn project-nav-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-30 bg-white dark:bg-slate-700 text-primary rounded-full p-3 shadow-md hover:bg-gray-100 dark:hover:bg-slate-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+                
+                <button class="swiper-nav-btn project-nav-next absolute right-0 top-1/2 transform -translate-y-1/2 z-30 bg-white dark:bg-slate-700 text-primary rounded-full p-3 shadow-md hover:bg-gray-100 dark:hover:bg-slate-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+                
+                <!-- Swiper container -->
+                <div class="swiper projectSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Project 1 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/portfolio/3.png" alt="Learn.io Dashboard" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Learn.io Dashboard</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Aplikasi dashboard pembelajaran online dengan fitur tracking progress dan analisis kinerja.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 2 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/portfolio/4.png" alt="E-Commerce Website" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">E-Commerce Platform</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Website e-commerce dengan sistem pembayaran terintegrasi dan manajemen inventaris.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/portfolio/3.png" alt="Mobile App" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Mobile Application</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Aplikasi mobile cross-platform untuk manajemen tugas dan kolaborasi tim.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 4 -->
+                        <div class="swiper-slide p-2">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                                <div class="h-56 overflow-hidden">
+                                    <img src="src/img/portfolio/1.png" alt="Portfolio Website" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 flex-1">
+                                    <h3 class="font-semibold text-lg text-dark mb-2 dark:text-white">Personal Portfolio</h3>
+                                    <p class="text-sm text-secondary dark:text-gray-300">Website portofolio personal menggunakan Tailwind CSS dengan mode gelap dan fitur animasi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination dots seperti pada bagian sertifikat -->
+            <div class="swiper-pagination-wrapper project-pagination-wrapper pb-4 mt-3">
+                <div class="swiper-pagination project-pagination"></div>
             </div>
         </div>
 
@@ -219,6 +375,8 @@
     <script src="src/js/darkMode.js"></script>
     <script src="src/js/logo.js"></script>
     <script src="src/js/loader-animation.js" defer></script>
+    <script src="src/js/sertifikat-carousel.js"></script>
+    <script src="src/js/project-carousel.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
