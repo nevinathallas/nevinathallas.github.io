@@ -81,9 +81,20 @@ header {
     }
 }
 
-/* Hamburger Menu - N Shape Animation */
+/* Hamburger Menu - Fixed Position */
 #hamburger {
-    @apply relative h-12 w-12 cursor-pointer;
+    @apply block h-12 w-12 cursor-pointer;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    z-index: 9999;
+}
+
+/* Tidak ada perubahan posisi saat navbar fixed */
+.navbar-fixed #hamburger {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
 }
 
 .hamburger-line {
@@ -135,7 +146,7 @@ header {
 
 /* Loading Screen Styles */
 #loading-screen {
-    transition: opacity 0.5s ease-in-out, visibility 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out, visibility 3s ease-in-out;
 }
 
 #loading-screen.hidden {
@@ -222,16 +233,35 @@ header {
     max-width: 320px;
 }
 
-.sertifikat-img-container {
+/* Mencegah gambar terpotong dan mencegah download */
+.sertifikat-img-container,
+.h-56.overflow-hidden {
     height: 250px;
     overflow: hidden;
+    position: relative;
 }
 
-.sertifikat-img {
+.sertifikat-img-container::after,
+.h-56.overflow-hidden::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    pointer-events: none; /* Memungkinkan interaksi dengan elemen di bawahnya */
+    z-index: 1;
+}
+
+.sertifikat-img,
+.w-full.h-full.object-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mengubah dari cover ke contain agar gambar tidak terpotong */
     object-position: center;
+    pointer-events: none; /* Mencegah download dengan klik kanan */
+    user-select: none; /* Mencegah highlight/select */
+    -webkit-user-drag: none; /* Mencegah drag & drop */
 }
 
 @media (max-width: 768px) {
