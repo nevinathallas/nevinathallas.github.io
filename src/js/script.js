@@ -11,20 +11,16 @@ window.onscroll = function(){
 }
 
 // Hamburger
-const hamburger = document.querySelector('#hamburger');
-const navMenu = document.querySelector('#nav-menu');
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('#hamburger');
+    const navMenu = document.querySelector('#nav-menu');
 
-hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('hamburger-active')
-    navMenu.classList.toggle('hidden');
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('hamburger-active');
+            navMenu.classList.toggle('hidden');
+        });
+    } else {
+        console.error('Hamburger menu elements not found');
+    }
 });
-
-import { Lumiflex } from "uvcanvas"
-
-export default function Home() {
-  return (
-    <div>
-      <Lumiflex />
-    </div>
-  )
-}

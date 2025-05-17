@@ -44,7 +44,7 @@ header {
 /* Mobile menu styles */
 @media (max-width: 1024px) {
     #nav-menu {
-        @apply bg-white dark:bg-gray-800;
+        @apply bg-[#F9F6EE] dark:bg-gray-800;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
     
@@ -58,6 +58,7 @@ header {
 
     .navbar-fixed #nav-menu {
         background-color: rgba(249, 246, 238, 0.8);
+        backdrop-filter: blur(8px);
     }
 
     .navbar-fixed #nav-menu .nav-link {
@@ -80,37 +81,56 @@ header {
     }
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu - N Shape Animation */
 #hamburger {
-    @apply hover:opacity-80 transition-opacity duration-300;
-}
-
-#hamburger:hover .hamburger-line {
-    @apply bg-primary;
+    @apply relative h-12 w-12 cursor-pointer;
 }
 
 .hamburger-line {
-    @apply w-[30px] h-[2px] my-2 block bg-[#1C1C1C] dark:bg-[#F9F6EE] transition duration-300 ease-in-out;
+    @apply absolute h-[3px] bg-[#1C1C1C] dark:bg-[#F9F6EE] transition-all duration-500;
+    left: calc(50% - 13px);
+    width: 26px;
+    transform-origin: center;
 }
 
 .hamburger-line:nth-child(1) {
-    @apply origin-top-left;
+    @apply top-[16px];
+    transition-delay: 0s;
+}
+
+.hamburger-line:nth-child(2) {
+    @apply top-[24px];
+    transition-delay: 0.05s;
 }
 
 .hamburger-line:nth-child(3) {
-    @apply origin-bottom-left;
+    @apply top-[32px];
+    transition-delay: 0.1s;
+}
+
+/* Stylish X Animation */
+.hamburger-active > span {
+    @apply bg-primary;
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    left: calc(50% - 15px);
+    transition-duration: 300ms;
 }
 
 .hamburger-active > span:nth-child(1) {
-    @apply rotate-45;
+    top: 24px;
+    transform: rotate(45deg);
 }
 
 .hamburger-active > span:nth-child(2) {
-    @apply scale-0;
+    opacity: 0;
+    transform: translateX(20px);
 }
 
 .hamburger-active > span:nth-child(3) {
-    @apply -rotate-45;
+    top: 24px;
+    transform: rotate(-45deg);
 }
 
 /* Loading Screen Styles */
@@ -121,6 +141,110 @@ header {
 #loading-screen.hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+/* Sertifikat Carousel Styles */
+.sertifikat-carousel-container {
+    position: relative;
+    padding: 0 20px;
+}
+
+.sertifikatSwiper {
+    padding: 30px 0;
+    overflow: hidden;
+}
+
+.sertifikatSwiper .swiper-slide {
+    height: auto;
+    transition: transform 0.3s;
+    display: flex;
+    justify-content: center;
+}
+
+.sertifikatSwiper .swiper-slide-active {
+    transform: scale(1.02);
+}
+
+/* Custom navigation buttons */
+.sertifikat-carousel-container .swiper-button-next,
+.sertifikat-carousel-container .swiper-button-prev {
+    color: #38bdf8;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.sertifikat-carousel-container .swiper-button-next:after,
+.sertifikat-carousel-container .swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sertifikat-carousel-container .swiper-button-disabled {
+    opacity: 0.3;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background: #38bdf8 !important;
+    transform: scale(1.3);
+}
+
+.swiper-pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.swiper-pagination {
+    position: relative !important;
+    bottom: 0 !important;
+    width: auto !important;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.sertifikat-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+}
+
+.sertifikat-img-container {
+    height: 250px;
+    overflow: hidden;
+}
+
+.sertifikat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    /* Menyembunyikan tombol navigasi pada mobile untuk memungkinkan swipe langsung */
+    .swiper-nav-btn {
+        display: none !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .swiper-pagination {
+        margin-top: 2rem;
+    }
 }
 
 .loading-spinner {
