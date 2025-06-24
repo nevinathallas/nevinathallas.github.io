@@ -1276,36 +1276,34 @@ header {
   }
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu - Fixed Position */
 
 #hamburger {
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 9999;
 }
 
-#hamburger:hover {
-  opacity: 0.8;
-}
+/* Tidak ada perubahan posisi saat navbar fixed */
 
-#hamburger:hover .hamburger-line {
-  --tw-bg-opacity: 1;
-  background-color: rgb(56 189 248 / var(--tw-bg-opacity, 1));
+.navbar-fixed #hamburger {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
 }
 
 .hamburger-line {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  display: block;
-  height: 2px;
-  width: 30px;
+  position: absolute;
+  height: 3px;
   --tw-bg-opacity: 1;
   background-color: rgb(28 28 28 / var(--tw-bg-opacity, 1));
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-duration: 300ms;
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
 }
 
 .hamburger-line:is(.dark *) {
@@ -1313,28 +1311,52 @@ header {
   background-color: rgb(249 246 238 / var(--tw-bg-opacity, 1));
 }
 
+.hamburger-line {
+  left: calc(50% - 13px);
+  width: 26px;
+  transform-origin: center;
+}
+
 .hamburger-line:nth-child(1) {
-  transform-origin: top left;
+  top: 16px;
+  transition-delay: 0s;
+}
+
+.hamburger-line:nth-child(2) {
+  top: 24px;
+  transition-delay: 0.05s;
 }
 
 .hamburger-line:nth-child(3) {
-  transform-origin: bottom left;
+  top: 32px;
+  transition-delay: 0.1s;
+}
+
+/* Stylish X Animation */
+
+.hamburger-active > span {
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 189 248 / var(--tw-bg-opacity, 1));
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  left: calc(50% - 15px);
+  transition-duration: 300ms;
 }
 
 .hamburger-active > span:nth-child(1) {
-  --tw-rotate: 45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  top: 24px;
+  transform: rotate(45deg);
 }
 
 .hamburger-active > span:nth-child(2) {
-  --tw-scale-x: 0;
-  --tw-scale-y: 0;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  opacity: 0;
+  transform: translateX(20px);
 }
 
 .hamburger-active > span:nth-child(3) {
-  --tw-rotate: -45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  top: 24px;
+  transform: rotate(-45deg);
 }
 
 /* Loading Screen Styles */

@@ -81,37 +81,67 @@ header {
     }
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu - Fixed Position */
 #hamburger {
-    @apply hover:opacity-80 transition-opacity duration-300;
+    @apply h-12 w-12 cursor-pointer;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    z-index: 9999;
 }
 
-#hamburger:hover .hamburger-line {
-    @apply bg-primary;
+/* Tidak ada perubahan posisi saat navbar fixed */
+.navbar-fixed #hamburger {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
 }
 
 .hamburger-line {
-    @apply w-[30px] h-[2px] my-2 block bg-[#1C1C1C] dark:bg-[#F9F6EE] transition duration-300 ease-in-out;
+    @apply absolute h-[3px] bg-[#1C1C1C] dark:bg-[#F9F6EE] transition-all duration-500;
+    left: calc(50% - 13px);
+    width: 26px;
+    transform-origin: center;
 }
 
 .hamburger-line:nth-child(1) {
-    @apply origin-top-left;
+    @apply top-[16px];
+    transition-delay: 0s;
+}
+
+.hamburger-line:nth-child(2) {
+    @apply top-[24px];
+    transition-delay: 0.05s;
 }
 
 .hamburger-line:nth-child(3) {
-    @apply origin-bottom-left;
+    @apply top-[32px];
+    transition-delay: 0.1s;
+}
+
+/* Stylish X Animation */
+.hamburger-active > span {
+    @apply bg-primary;
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    left: calc(50% - 15px);
+    transition-duration: 300ms;
 }
 
 .hamburger-active > span:nth-child(1) {
-    @apply rotate-45;
+    top: 24px;
+    transform: rotate(45deg);
 }
 
 .hamburger-active > span:nth-child(2) {
-    @apply scale-0;
+    opacity: 0;
+    transform: translateX(20px);
 }
 
 .hamburger-active > span:nth-child(3) {
-    @apply -rotate-45;
+    top: 24px;
+    transform: rotate(-45deg);
 }
 
 /* Loading Screen Styles */
