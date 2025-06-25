@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Tailwind CSS</title>
+    <title>Portfolio Nevin Athalla Sukandar</title>
     <link href="src/output.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Swiper.js - versi yang dijamin berfungsi -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" defer></script>
+    <!-- Add particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
-<body class="bg-[#F9F6EE] dark:bg-gray-800 transition-colors duration-300">
+<body class="bg-[#F9F6EE] dark:bg-gray-900 transition-colors duration-300">
     <!-- In index.html -->
     <div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#F9F6EE] dark:bg-gray-900 transition-opacity duration-500">
         <div class="loader-container relative w-32 h-32">
@@ -27,6 +29,11 @@
             </div>
         </div>
     </div>
+    <!-- Particle Container -->
+    <div id="particles-js" class="fixed inset-0 z-[-1] opacity-80 dark:opacity-70">
+    </div>
+    <!-- Spark Container for Click Animation -->
+    <canvas id="spark-canvas" class="fixed inset-0 z-[99999] pointer-events-none select-none"></canvas>
     <!-- Header Start -->
     <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
         <div class="container">
@@ -43,12 +50,12 @@
                 </div>
                 <div class="flex items-center px-4">
                     <button id="hamburger" name="hamburger" type="button" 
-                    class="block absolute right-4 lg:hidden">
+                    class="absolute right-4 lg:hidden flex items-center justify-center">
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                     </button>
-                    <nav id="nav-menu" class="hidden absolute py-5 bg-white dark:bg-gray-800 shadow-lg rounded-lg max-w-[250px] 
+                    <nav id="nav-menu" class="hidden absolute py-5 bg-white dark:bg-gray-900 shadow-lg rounded-lg max-w-[250px] 
                     w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none 
                     lg:rounded-none">
                         <ul class="block lg:flex lg:items-center">
@@ -112,7 +119,7 @@
                     </a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
-                    <div class="relative mt-10 lg:mt-0 lg:right-0 animate-landing delay-600"> 
+                    <div class="relative mt-10 lg:mt-0 lg:right-0 animate-landing delay-600">
                         <img src="src/img/nevin.png" alt="Nevin Athalla" 
                             class="max-w-xs grayscale lg:max-w-sm mx-auto transform hover:scale-105 hover:grayscale-0 transition-all ease-in-out animate-landing duration-100 delay-100">
                         <span class="absolute -bottom-0 -z-10 left-1/2 -translate-x-1/2 md:scale-12">
@@ -145,7 +152,7 @@
                     <!-- Instagram -->
                     <a href="https://www.instagram.com/nevinathallas" target="_blank" class="w-9 h-9 mr-3 rounded-full
                     flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
-                    <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.7889 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.948-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                    <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
                     </a>
                     <!-- Discord -->
                     <a href="https://discordapp.com/users/524602584955092993" target="_blank" class="w-9 h-9 mr-3 rounded-full
@@ -167,7 +174,7 @@
     <!-- About Section End -->
 
     <!-- Sertifikat Section Start -->
-    <section id="sertifikat" class="pt-36 pb-16 bg-[#F9F6EE] dark:bg-gray-800 transition-colors duration-300">
+    <section id="sertifikat" class="pt-36 pb-16 bg-transparent transition-colors duration-300">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16 animate-landing">
@@ -200,7 +207,7 @@
                     <div class="swiper-wrapper">
                         <!-- Sertifikat 1 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/sertifikat/1.png" alt="Sertifikat LKMM" class="w-full h-full object-cover">
                                 </div>
@@ -213,7 +220,7 @@
                         
                         <!-- Sertifikat 2 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/sertifikat/2.png" alt="Sertifikat LKMM" class="w-full h-full object-cover">
                                 </div>
@@ -226,7 +233,7 @@
                         
                         <!-- Sertifikat 3 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/sertifikat/3.png" alt="Sertifikat PKKMB" class="w-full h-full object-cover">
                                 </div>
@@ -239,7 +246,7 @@
                         
                         <!-- Sertifikat 4 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/sertifikat/1.png" alt="Sertifikat Tambahan" class="w-full h-full object-cover">
                                 </div>
@@ -252,7 +259,7 @@
                         
                         <!-- Sertifikat 5 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/sertifikat/2.png" alt="Sertifikat Tambahan" class="w-full h-full object-cover">
                                 </div>
@@ -266,16 +273,16 @@
                 </div>
             </div>
             
-            <!-- Pagination dots untuk sertifikat dengan kelas spesifik -->
+            <!-- Pagination dots seperti pada gambar kedua -->
             <div class="swiper-pagination-wrapper pb-4 mt-3">
-                <div class="swiper-pagination sertifikat-pagination"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
     <!-- Sertifikat Section End -->
 
     <!-- Portfolio Section Start -->
-    <section id="portfolio" class="pt-36 pb-16 bg-[#F9F6EE] dark:bg-gray-800 transition-colors duration-300">
+    <section id="portfolio" class="pt-36 pb-16 bg-transparent transition-colors duration-300">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16 animate-landing">
@@ -306,7 +313,7 @@
                     <div class="swiper-wrapper">
                         <!-- Project 1 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/portfolio/3.png" alt="Learn.io Dashboard" class="w-full h-full object-cover">
                                 </div>
@@ -319,7 +326,7 @@
                         
                         <!-- Project 2 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/portfolio/4.png" alt="E-Commerce Website" class="w-full h-full object-cover">
                                 </div>
@@ -332,7 +339,7 @@
                         
                         <!-- Project 3 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/portfolio/3.png" alt="Mobile App" class="w-full h-full object-cover">
                                 </div>
@@ -345,7 +352,7 @@
                         
                         <!-- Project 4 -->
                         <div class="swiper-slide p-2">
-                            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                                 <div class="h-56 overflow-hidden">
                                     <img src="src/img/portfolio/1.png" alt="Portfolio Website" class="w-full h-full object-cover">
                                 </div>
@@ -382,6 +389,138 @@
         AOS.init({
             once: true,
             offset: 100,
+        });
+    </script>
+    <!-- Initialize particles.js and spark animation at the end of body to ensure DOM is loaded -->
+    <script>
+        function setupParticles(isDarkMode) {
+            const particleColor = isDarkMode ? "#ffffff" : "#374151"; // white for dark, gray-700 for light
+            const linkColor = isDarkMode ? "#ffffff" : "#374151";
+
+            // Destroy previous instance if it exists
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                window.pJSDom = [];
+            }
+
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 200, density: { enable: true, value_area: 800 } },
+                    color: { value: particleColor },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.6, random: true },
+                    size: { value: 5, random: true },
+                    line_linked: { enable: false },
+                    move: { enable: true, speed: 3, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: false },
+                        resize: true
+                    },
+                    modes: {
+                        repulse: { distance: 200, duration: 0.2 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        // Spark Animation on Click
+        function setupSparkAnimation() {
+            const canvas = document.getElementById('spark-canvas');
+            const ctx = canvas.getContext('2d');
+            let sparks = [];
+            const sparkColor = '#fff';
+            const sparkSize = 10;
+            const sparkRadius = 15;
+            const sparkCount = 8;
+            const duration = 400;
+
+            // Set canvas size to window size
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Handle click to create sparks
+            document.addEventListener('click', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const now = performance.now();
+
+                const newSparks = Array.from({ length: sparkCount }, (_, i) => ({
+                    x,
+                    y,
+                    angle: (2 * Math.PI * i) / sparkCount,
+                    startTime: now
+                }));
+                sparks.push(...newSparks);
+            });
+
+            // Animation loop for sparks
+            function drawSparks(timestamp) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                sparks = sparks.filter(spark => {
+                    const elapsed = timestamp - spark.startTime;
+                    if (elapsed >= duration) return false;
+
+                    const progress = elapsed / duration;
+                    const eased = progress * (2 - progress); // ease-out effect
+                    const distance = eased * sparkRadius;
+                    const lineLength = sparkSize * (1 - eased);
+
+                    const x1 = spark.x + distance * Math.cos(spark.angle);
+                    const y1 = spark.y + distance * Math.sin(spark.angle);
+                    const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
+                    const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
+
+                    ctx.strokeStyle = sparkColor;
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.stroke();
+
+                    return true;
+                });
+
+                requestAnimationFrame(drawSparks);
+            }
+            requestAnimationFrame(drawSparks);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof particlesJS !== 'undefined') {
+                // Initial setup for particles
+                const isInitiallyDark = document.documentElement.classList.contains('dark');
+                setupParticles(isInitiallyDark);
+
+                // Use a MutationObserver to detect class changes on the <html> element
+                const observer = new MutationObserver(mutations => {
+                    mutations.forEach(mutation => {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                            const isDark = document.documentElement.classList.contains('dark');
+                            setupParticles(isDark);
+                        }
+                    });
+                });
+
+                observer.observe(document.documentElement, {
+                    attributes: true
+                });
+
+                // Setup spark animation
+                setupSparkAnimation();
+            } else {
+                console.error("particles.js is not defined. Check if the library loaded correctly.");
+            }
         });
     </script>
 </body>
