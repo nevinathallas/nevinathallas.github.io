@@ -1244,10 +1244,6 @@ header {
 
 @media (max-width: 1024px) {
   #nav-menu {
-    position: fixed !important;
-    top: 5rem !important;
-    right: 1rem !important;
-    z-index: 9998 !important;
     --tw-bg-opacity: 1;
     background-color: rgb(249 246 238 / var(--tw-bg-opacity, 1));
   }
@@ -1319,6 +1315,15 @@ header {
   #nav-menu {
     background-color: transparent;
     box-shadow: none;
+  }
+}
+
+/* Fix nav-menu positioning on mobile to be consistent regardless of navbar state */
+@media (max-width: 1024px) {
+  #nav-menu {
+    position: absolute !important;
+    top: 72px !important;
+    right: 1rem !important;
   }
 }
 
