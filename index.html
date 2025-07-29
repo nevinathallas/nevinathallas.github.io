@@ -9,6 +9,12 @@
         /* Loading Screen Animations */
         #loading-screen {
             background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            transition: background 0.3s ease;
+        }
+        
+        /* Light Mode Loading Screen */
+        .light #loading-screen {
+            background: radial-gradient(ellipse at center, #f0f4f8 0%, #d6e9ff 50%, #c1d9ff 100%);
         }
         
         #vanta-loading-bg {
@@ -19,12 +25,26 @@
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             animation: glow 2s ease-in-out infinite alternate;
             color: #ffffff !important;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        
+        /* Light Mode Text */
+        .light .loading-container h1 {
+            color: #1a202c !important;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: glowLight 2s ease-in-out infinite alternate;
         }
         
         .loading-container p {
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
             color: #ffffff !important;
             opacity: 0.9;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        
+        .light .loading-container p {
+            color: #2d3748 !important;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         
         /* Touch Text Animation */
@@ -39,6 +59,10 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
+        .light .touch-text {
+            color: rgba(26, 32, 44, 0.8);
+        }
+        
         .touch-text::before {
             content: '';
             position: absolute;
@@ -51,10 +75,19 @@
             transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
+        .light .touch-text::before {
+            background: linear-gradient(90deg, transparent, #3182ce, transparent);
+        }
+        
         .touch-text:hover {
             color: rgba(255, 255, 255, 1);
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
             transform: translateY(-2px);
+        }
+        
+        .light .touch-text:hover {
+            color: rgba(26, 32, 44, 1);
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
         
         .touch-text:hover::before {
@@ -69,6 +102,10 @@
             transform: scale(0);
             animation: ripple 0.8s linear;
             pointer-events: none;
+        }
+        
+        .light .touch-ripple {
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
         }
         
         @keyframes ripple {
@@ -90,6 +127,11 @@
             background: rgba(255, 107, 157, 0.6);
             border-radius: 50%;
             animation: floatDot 3s ease-in-out infinite;
+            transition: background 0.3s ease;
+        }
+        
+        .light .floating-dot {
+            background: rgba(49, 130, 206, 0.6);
         }
         
         .floating-dot:nth-child(1) {
@@ -164,6 +206,16 @@
             }
             to {
                 text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.3);
+            }
+        }
+        
+        /* Light mode glow animation */
+        @keyframes glowLight {
+            from {
+                text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.1);
             }
         }
         
@@ -622,19 +674,45 @@
         let isTransitioning = false;
         
         function setupVantaLoadingEffect() {
-            // Initialize Vanta trunk effect for loading screen
-            vantaLoadingEffect = VANTA.TRUNK({
+            // Check if light mode is active
+            const isLightMode = document.body.classList.contains('light') || 
+                               (!document.documentElement.classList.contains('dark') && 
+                                localStorage.getItem('darkMode') !== 'dark');
+            
+            console.log('=== VANTA SETUP DEBUG ===');
+            console.log('Body classes:', document.body.className);
+            console.log('HTML classes:', document.documentElement.className);
+            console.log('localStorage darkMode:', localStorage.getItem('darkMode'));
+            console.log('isLightMode detected:', isLightMode);
+            
+            // Set colors based on mode
+            const vantaConfig = {
                 el: "#vanta-loading-bg",
                 p5: p5,
-                color: 0x98465f, // Muted pink/purple
-                backgroundColor: 0x0f0f23, // Dark space-like background
                 spacing: 1,
                 chaos: 1.5,
                 minHeight: 200.00,
                 minWidth: 200.00,
                 scale: 1.00,
                 scaleMobile: 0.8
-            });
+            };
+            
+            if (isLightMode) {
+                // Light mode colors
+                vantaConfig.color = 0x3182ce; // Blue
+                vantaConfig.backgroundColor = 0xf0f4f8; // Light blue-gray
+                console.log('Using LIGHT mode colors: blue & light gray');
+            } else {
+                // Dark mode colors (original)
+                vantaConfig.color = 0x98465f; // Muted pink/purple
+                vantaConfig.backgroundColor = 0x0f0f23; // Dark space-like background
+                console.log('Using DARK mode colors: pink & dark');
+            }
+            
+            console.log('Final vantaConfig:', vantaConfig);
+            
+            // Initialize Vanta trunk effect for loading screen
+            vantaLoadingEffect = VANTA.TRUNK(vantaConfig);
         }
 
         // Enter portfolio animation with zoom effect
@@ -774,6 +852,23 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
+            // Initialize dark/light mode first
+            const darkModePref = localStorage.getItem('darkMode');
+            const html = document.documentElement;
+            const body = document.body;
+            
+            console.log('Initial darkModePref from localStorage:', darkModePref);
+            
+            if (darkModePref === 'dark') {
+                html.classList.add('dark');
+                body.classList.remove('light');
+                console.log('Setting DARK mode');
+            } else {
+                html.classList.remove('dark');
+                body.classList.add('light');
+                console.log('Setting LIGHT mode (default)');
+            }
+            
             // Prevent scrolling during loading
             document.body.style.overflow = 'hidden';
             
