@@ -1318,18 +1318,6 @@ header {
   }
 }
 
-/* Fix nav-menu positioning on mobile to be consistent regardless of navbar state */
-@media (max-width: 1024px) {
-  #nav-menu {
-    position: fixed !important;
-    top: 5rem !important;
-    right: 1rem !important;
-    z-index: 9998 !important;
-    max-width: 250px !important;
-    margin-top: 0.5rem !important;
-  }
-}
-
 /* Hamburger Menu - N Shape Animation */
 
 #hamburger {
@@ -1807,5 +1795,18 @@ header {
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+}
+
+/* FINAL OVERRIDE: Fix nav-menu positioning like hamburger - this MUST come last */
+@media (max-width: 1024px) {
+  html #nav-menu {
+    position: fixed !important;
+    top: 5.5rem !important;
+    right: 1rem !important;
+    z-index: 9998 !important;
+    max-width: 250px !important;
+    left: auto !important;
+    transform: none !important;
   }
 }
