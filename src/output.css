@@ -1321,10 +1321,13 @@ header {
 /* Hamburger Menu - N Shape Animation */
 
 #hamburger {
-  position: relative;
+  position: fixed !important;
+  right: 1rem !important;
+  top: 1.5rem !important;
   height: 3rem;
   width: 3rem;
   cursor: pointer;
+  z-index: 9999 !important;
 }
 
 .hamburger-line {
