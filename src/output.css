@@ -1321,9 +1321,10 @@ header {
 /* Fix nav-menu positioning on mobile to be consistent regardless of navbar state */
 @media (max-width: 1024px) {
   #nav-menu {
-    position: absolute !important;
-    top: 72px !important;
+    position: fixed !important;
+    top: 5rem !important;
     right: 1rem !important;
+    z-index: 9998 !important;
   }
 }
 
