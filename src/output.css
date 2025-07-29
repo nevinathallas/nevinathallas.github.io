@@ -1802,7 +1802,7 @@ header {
 @media (max-width: 1024px) {
   html #nav-menu {
     position: fixed !important;
-    top: 7rem !important;
+    top: 10rem !important;
     right: 1rem !important;
     z-index: 9998 !important;
     max-width: 250px !important;
