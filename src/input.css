@@ -92,34 +92,43 @@ header {
 
 /* Hamburger Menu - N Shape Animation */
 #hamburger {
-    @apply relative h-12 w-12 cursor-pointer;
+    @apply relative h-12 w-12 cursor-pointer flex items-center justify-center;
     z-index: 50;
+    position: relative;
 }
 
 #hamburger span {
     display: block;
+    position: absolute;
 }
 
 .hamburger-line {
-    @apply absolute h-[3px] bg-[#1C1C1C] dark:bg-[#F9F6EE] transition-all duration-500;
-    left: calc(50% - 13px);
+    @apply h-[3px] bg-[#1C1C1C] dark:bg-[#F9F6EE] transition-all duration-500;
     width: 26px;
     transform-origin: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .hamburger-line:nth-child(1) {
-    @apply top-[16px];
+    top: 16px;
     transition-delay: 0s;
 }
 
 .hamburger-line:nth-child(2) {
-    @apply top-[24px];
+    top: 24px;
     transition-delay: 0.05s;
 }
 
 .hamburger-line:nth-child(3) {
-    @apply top-[32px];
+    top: 32px;
     transition-delay: 0.1s;
+}
+
+/* Navbar fixed state - hamburger tetap konsisten */
+.navbar-fixed #hamburger .hamburger-line {
+    @apply bg-[#1C1C1C] dark:bg-[#F9F6EE];
 }
 
 /* Stylish X Animation */
@@ -128,13 +137,14 @@ header {
     width: 30px !important;
     height: 2px !important;
     position: absolute !important;
-    left: calc(50% - 15px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     transition-duration: 300ms !important;
 }
 
 .hamburger-active > span:nth-child(1) {
     top: 24px !important;
-    transform: rotate(45deg) !important;
+    transform: translateX(-50%) rotate(45deg) !important;
 }
 
 .hamburger-active > span:nth-child(2) {
@@ -144,7 +154,7 @@ header {
 
 .hamburger-active > span:nth-child(3) {
     top: 24px !important;
-    transform: rotate(-45deg) !important;
+    transform: translateX(-50%) rotate(-45deg) !important;
 }
 
 /* Loading Screen Styles */

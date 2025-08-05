@@ -1256,19 +1256,22 @@ header {
 /* Hamburger Menu - N Shape Animation */
 
 #hamburger {
-  position: relative;
+  display: flex;
   height: 3rem;
   width: 3rem;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
   z-index: 50;
+  position: relative;
 }
 
 #hamburger span {
   display: block;
+  position: absolute;
 }
 
 .hamburger-line {
-  position: absolute;
   height: 3px;
   --tw-bg-opacity: 1;
   background-color: rgb(28 28 28 / var(--tw-bg-opacity, 1));
@@ -1283,9 +1286,11 @@ header {
 }
 
 .hamburger-line {
-  left: calc(50% - 13px);
   width: 26px;
   transform-origin: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hamburger-line:nth-child(1) {
@@ -1303,6 +1308,18 @@ header {
   transition-delay: 0.1s;
 }
 
+/* Navbar fixed state - hamburger tetap konsisten */
+
+.navbar-fixed #hamburger .hamburger-line {
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 28 28 / var(--tw-bg-opacity, 1));
+}
+
+.navbar-fixed #hamburger .hamburger-line:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 246 238 / var(--tw-bg-opacity, 1));
+}
+
 /* Stylish X Animation */
 
 .hamburger-active > span {
@@ -1310,13 +1327,14 @@ header {
   width: 30px !important;
   height: 2px !important;
   position: absolute !important;
-  left: calc(50% - 15px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   transition-duration: 300ms !important;
 }
 
 .hamburger-active > span:nth-child(1) {
   top: 24px !important;
-  transform: rotate(45deg) !important;
+  transform: translateX(-50%) rotate(45deg) !important;
 }
 
 .hamburger-active > span:nth-child(2) {
@@ -1326,7 +1344,7 @@ header {
 
 .hamburger-active > span:nth-child(3) {
   top: 24px !important;
-  transform: rotate(-45deg) !important;
+  transform: translateX(-50%) rotate(-45deg) !important;
 }
 
 /* Loading Screen Styles */
