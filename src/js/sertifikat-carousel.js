@@ -1,6 +1,6 @@
 // Inisialisasi carousel sertifikat
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded, initializing Swiper');
+  console.log('Initializing Sertifikat Swiper...');
   
   setTimeout(function() {
     try {
@@ -9,44 +9,43 @@ document.addEventListener('DOMContentLoaded', function() {
         // Konfigurasi dasar
         slidesPerView: 1,
         spaceBetween: 20,
+        centeredSlides: true,
         loop: true,
         grabCursor: true,
         
-        // Konfigurasi tampilan
-        centerInsufficientSlides: true,
-        centerSlides: true,
-        speed: 500,
-        
         // Pagination
         pagination: {
-          el: '.swiper-pagination',
+          el: '.sertifikat-pagination',
           clickable: true,
         },
         
-        // Tambahkan autoplay
+        // Autoplay
         autoplay: {
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true,
         },
 
-        // Responsive
+        // Responsive dengan preview gambar
         breakpoints: {
           640: {
             slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
           },
           768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+            slidesPerView: 1.5,
+            spaceBetween: 30,
+            centeredSlides: true,
           },
           1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
+            slidesPerView: 1.8,
+            spaceBetween: 40,
+            centeredSlides: true,
           },
         },
       });
       
-      console.log('Swiper initialized successfully');
+      console.log('Sertifikat Swiper initialized successfully');
       
       // Menambahkan event listener untuk tombol kustom navigasi
       document.querySelector('.swiper-nav-prev').addEventListener('click', function() {

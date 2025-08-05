@@ -46,6 +46,15 @@ header {
     #nav-menu {
         @apply bg-[#F9F6EE] dark:bg-gray-800;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        position: absolute !important;
+        top: 100% !important;
+        right: 4px !important;
+        left: auto !important;
+        z-index: 40 !important;
+    }
+    
+    #nav-menu.hidden {
+        display: none !important;
     }
     
     .dark #nav-menu {
@@ -57,7 +66,7 @@ header {
     }
 
     .navbar-fixed #nav-menu {
-        background-color: rgba(249, 246, 238, 0.8);
+        background-color: rgba(249, 246, 238, 0.8) !important;
         backdrop-filter: blur(8px);
     }
 
@@ -66,7 +75,7 @@ header {
     }
 
     .dark .navbar-fixed #nav-menu {
-        background-color: rgba(31, 41, 55, 0.8);
+        background-color: rgba(31, 41, 55, 0.8) !important;
     }
 
     .dark .navbar-fixed #nav-menu .nav-link {
@@ -84,6 +93,11 @@ header {
 /* Hamburger Menu - N Shape Animation */
 #hamburger {
     @apply relative h-12 w-12 cursor-pointer;
+    z-index: 50;
+}
+
+#hamburger span {
+    display: block;
 }
 
 .hamburger-line {
@@ -110,27 +124,27 @@ header {
 
 /* Stylish X Animation */
 .hamburger-active > span {
-    @apply bg-primary;
-    width: 30px;
-    height: 2px;
-    position: absolute;
-    left: calc(50% - 15px);
-    transition-duration: 300ms;
+    background-color: #FA4D56 !important;
+    width: 30px !important;
+    height: 2px !important;
+    position: absolute !important;
+    left: calc(50% - 15px) !important;
+    transition-duration: 300ms !important;
 }
 
 .hamburger-active > span:nth-child(1) {
-    top: 24px;
-    transform: rotate(45deg);
+    top: 24px !important;
+    transform: rotate(45deg) !important;
 }
 
 .hamburger-active > span:nth-child(2) {
-    opacity: 0;
-    transform: translateX(20px);
+    opacity: 0 !important;
+    transform: translateX(20px) !important;
 }
 
 .hamburger-active > span:nth-child(3) {
-    top: 24px;
-    transform: rotate(-45deg);
+    top: 24px !important;
+    transform: rotate(-45deg) !important;
 }
 
 /* Loading Screen Styles */
@@ -320,4 +334,191 @@ header {
     100% {
         transform: scale(1);
     }
+}
+
+/* ======================== */
+/* FUTURISTIC CAROUSEL CSS  */
+/* ======================== */
+
+/* Pagination Styling for Carousels */
+.sertifikat-pagination, .project-pagination {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 16px 0 !important;
+}
+
+/* ===== FULL IMAGE CAROUSEL DESIGN ===== */
+.carousel-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+  height: 350px !important;
+  position: relative !important;
+  display: block !important;
+}
+
+/* Fallback background jika gambar tidak ada */
+.carousel-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, #FA4D56, #FF6B9D) !important;
+  opacity: 0.1 !important;
+  z-index: 1 !important;
+}
+
+.dark .carousel-card {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.light .carousel-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .carousel-card::before {
+  background: linear-gradient(135deg, #3182CE, #60A5FA) !important;
+}
+
+.carousel-card:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(250, 77, 86, 0.5) !important;
+}
+
+.light .carousel-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+}
+
+.carousel-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 20px !important;
+  position: relative !important;
+  z-index: 2 !important;
+  background: rgba(248, 250, 252, 0.8) !important;
+}
+
+/* Simple title overlay at bottom */
+.carousel-card-title {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)) !important;
+  color: white !important;
+  padding: 2rem 1.5rem 1.5rem !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  border-radius: 0 0 20px 20px !important;
+  transform: translateY(100%) !important;
+  transition: transform 0.3s ease !important;
+  z-index: 3 !important;
+}
+
+.light .carousel-card-title {
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.95)) !important;
+  color: #1a1a1a !important;
+}
+
+.carousel-card:hover .carousel-card-title {
+  transform: translateY(0) !important;
+}
+
+/* Preview slides styling */
+.swiper-slide {
+  transition: all 0.4s ease !important;
+  opacity: 0.4 !important;
+  transform: scale(0.85) !important;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.swiper-slide-next,
+.swiper-slide-prev {
+  opacity: 0.7 !important;
+  transform: scale(0.9) !important;
+}
+
+/* Navigation buttons */
+.swiper-nav-btn {
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.light .swiper-nav-btn {
+  background: rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: #1a1a1a !important;
+}
+
+.swiper-nav-btn:hover {
+  background: #FA4D56 !important;
+  color: white !important;
+  border-color: #FA4D56 !important;
+}
+
+/* Pagination dots */
+.swiper-pagination .swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 50% !important;
+  opacity: 0.7 !important;
+  transition: all 0.3s ease !important;
+  margin: 0 4px !important;
+}
+
+.light .swiper-pagination .swiper-pagination-bullet {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background: #FA4D56 !important;
+  opacity: 1 !important;
+  transform: scale(1.2) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .carousel-card {
+    min-height: 250px !important;
+  }
+  
+  .carousel-card-overlay {
+    padding: 1rem !important;
+  }
+  
+  .swiper-nav-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
 }

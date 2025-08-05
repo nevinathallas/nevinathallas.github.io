@@ -1,28 +1,17 @@
 // Inisialisasi carousel project
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded, initializing Project Swiper');
+  console.log('Initializing Project Swiper...');
   
   setTimeout(function() {
     try {
-      // Inisialisasi Swiper untuk Project
+      // Inisialisasi Swiper untuk Project - mengikuti konfigurasi sertifikat
       var projectSwiper = new Swiper('.projectSwiper', {
         // Konfigurasi dasar
         slidesPerView: 1,
         spaceBetween: 20,
+        centeredSlides: true,
         loop: true,
         grabCursor: true,
-        
-        // Konfigurasi tampilan
-        centerInsufficientSlides: true,
-        centerSlides: true,
-        speed: 500,
-        
-        // Autoplay settings
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        },
         
         // Pagination
         pagination: {
@@ -30,18 +19,28 @@ document.addEventListener('DOMContentLoaded', function() {
           clickable: true,
         },
         
-        // Responsive
+        // Autoplay
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+
+        // Responsive dengan preview gambar - sama seperti sertifikat
         breakpoints: {
           640: {
             slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
           },
           768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+            slidesPerView: 1.5,
+            spaceBetween: 30,
+            centeredSlides: true,
           },
           1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
+            slidesPerView: 1.8,
+            spaceBetween: 40,
+            centeredSlides: true,
           },
         },
       });
@@ -51,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
       // Menambahkan event listener untuk tombol kustom navigasi
       document.querySelector('.project-nav-prev').addEventListener('click', function() {
         projectSwiper.slidePrev();
-        console.log('Project Previous button clicked');
+        console.log('Previous button clicked');
       });
       
       document.querySelector('.project-nav-next').addEventListener('click', function() {
         projectSwiper.slideNext();
-        console.log('Project Next button clicked');
+        console.log('Next button clicked');
       });
       
     } catch (error) {
@@ -79,19 +78,33 @@ window.addEventListener('load', function() {
         var projectSwiper = new Swiper('.projectSwiper', {
           slidesPerView: 1,
           spaceBetween: 20,
+          centeredSlides: true,
           loop: true,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-          },
+          grabCursor: true,
           pagination: {
             el: '.project-pagination',
             clickable: true,
           },
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+          },
           breakpoints: {
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              centeredSlides: true,
+            },
+            768: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+              centeredSlides: true,
+            },
+            1024: {
+              slidesPerView: 1.8,
+              spaceBetween: 40,
+              centeredSlides: true,
+            },
           },
         });
         
