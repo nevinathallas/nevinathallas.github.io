@@ -243,7 +243,21 @@ header {
 
 @media (max-width: 640px) {
     .swiper-pagination {
-        margin-top: 2rem;
+        margin-top: 2rem !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+    
+    .sertifikat-pagination,
+    .project-pagination {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 }
 
