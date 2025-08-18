@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Pagination
         pagination: {
-          el: '.swiper-pagination',
+          el: '.sertifikat-pagination',
           clickable: true,
         },
         
